@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>dinnerdash | Backoffice</title>
+  <link rel="stylesheet" href="BackofficeStyles.css">
+</head>
+
+<body>
+  <header>
+    <div class="menu">
+      <h3>dinnerdash</h3>
+      <div>
+        <a>backoffice</a>
+        <a>perfil</a>
+        <a>sair</a>
+      </div>
+    </div>
+    <div>
+      <h1>Backoffice</h1>
+      <p>Gerencie pedidos, refeições e mais.</p>
+    </div>
+  </header>
+
+  <div class="outro_menu">
+    <a>Pedidos</a>
+    <a>Usuários</a>
+    <a>Refeições</a>
+    <a>Categorias de Refeição</a>
+  </div>
+
+  <main>
+    <form action="/alguma_pagina_que_lida_com_o_form" method="post" target="_self">
+      <div id="form_fields">
+        <div class="form_field">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" value="Fulano" />
+        </div>
+
+        <div class="form_field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" value="fulano@email.com" />
+        </div>
+
+        <div class="form_field">
+          <label for="new_password">Nova senha (deixe em branco caso não queire alterar)</label>
+          <input type="password" id="new_password" name="new_password" />
+        </div>
+
+        <div class="form_field">
+          <label for="password">Senha atual</label>
+          <input type="password" id="password" name="password" />
+        </div>
+      </div>
+
+      <input type="submit" value="atualizar meu perfil" />
+    </form>
+  </main>
+
+  <footer>
+    <span class="copyright">dinnerdash | todos os direitos reservados</span>
+    <span class="developer_info">desenvolvido por Trainee Legal</span>
+  </footer>
+  <script src="./script.js" defer></script>
+</body>
+
+</html>
