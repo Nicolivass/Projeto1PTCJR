@@ -50,7 +50,6 @@ function createColumnCadastradoEm(user) {
 
     userCadastro.classList.add('user_created_at')
 
-
     return userCadastro
 }
 
