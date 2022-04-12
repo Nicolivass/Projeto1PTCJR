@@ -1,17 +1,8 @@
 let CurrentPage = 1
 const USERS_PER_PAGE = 4
 
-
-function getTotalPages() {
-    return Math.ceil(meals.length / MEALS_PER_PAGE)
-}
-
-function getShortText(text, maxSize = 30) {
-    return text.length <= maxSize ? text : `${text.slice(0, maxSize)}...`
-}
-
 function deleteUser(id) {
-    users = users.filter((users) => users.id !== id)
+    user = user.filter((user) => user.id !== id)
     render()
 }
 
@@ -60,7 +51,6 @@ function createColumnEditar(user){
     editButton.textContent = 'editar'
 
     return editButton
-
 }
 
 function createColumnExcluir(user){
@@ -69,7 +59,7 @@ function createColumnExcluir(user){
     deleteButton.classList.add('delete')
     deleteButton.textContent = 'excluir'
 
-    return deleteBut
+    return deleteButton
 }
 
 
@@ -105,69 +95,22 @@ function renderUsers(){
     userContainer.replaceChildren()
     userRows.forEach((userRows) => {useContainer.appendChild(userRows)})
 }
+}
 
 function render() {
     const totalPages = getTotalPages()
     if (currentPage > totalPages) currentPage = totalPages
 
-    renderPagination(totalPages)
+    //renderPagination(totalPages)
     renderUsers()
 }
 
-function changePage(newPage) {
-    const totalPages = getTotalPages()
-    if (newPage >= 1 && newPage <= totalPages) {
-        currentPage = newPage
-        render()
-    }
-}
-
-function createPrevPageButton() {
-    const prevPageButton = createButtonElement('<<')
-    prevPageButton.addEventListener('click', () => {
-        changePage(currentPage - 1)
-    })
-    return prevPageButton
-}
-
-function createNextPageButton() {
-    const nextPageButton = createButtonElement('>>')
-    nextPageButton.addEventListener('click', () => {
-        changePage(currentPage + 1)
-    })
-    return nextPageButton
-}
-
-function createPaginationButton(page) {
-    const paginationButton = createButtonElement(page)
-    if (page === currentPage) paginationButton.classList.add('active')
-    paginationButton.addEventListener('click', () => changePage(page))
-    return paginationButton
-}
-
-function renderPagination(){
-    const pagination = document.querySelector('.pagination')
-    pagination.replaceChildren()
-
-    if (totalPages) {
-        const prevPageButton = createPrevPageButton()
-        pagination.appendChild(prevPageButton)
-
-        for (let page = 1; page <= totalPages; page++) {
-            const paginationButton = createPaginationButton(page)
-            pagination.appendChild(paginationButton)
-        }
-
-        const nextPageButton = createNextPageButton()
-        pagination.appendChild(nextPageButton)
-    }
-}
 /*criar a dinamica*/
 function render(){
     /*tabela*/
     renderUsers()
     /*paginação*/
-    renderPagination()
+    //renderPagination()
 }
 
 render()

@@ -11,11 +11,8 @@
   --backoffice-menu-bg: #343a40;
   --nav-links-color: #fff;
   --button-hover-color: #878584;
-  --backoffice-menu-bg: #343a40;
   --table-head-bg: #e9ecef;
   --nav-link-hover-color: #f79800;
-  --footer-color: #e3e3e3;
-  --dark-layer: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6));
   --edit-button-color: #ffa207;
   --delete-button-color: #dc3545;
   --pagination-active-bg: #007bff;
@@ -23,6 +20,7 @@
 
 * {
   font-family:  'Montserrat', sans-serif;
+  transition-duration: 0.2s;
   padding: 0;
   margin: 0;
   border: 0;
@@ -68,43 +66,32 @@ header {
   display: flex;
   column-gap: 2rem;
 }
-
-/* form styles */
-form {
-  width: 80%;
-  margin: 1rem auto;
-}
-
-#form_fields {
+/*table styles*/
+thead{
+  background-color: var(--table-head-bg);
+  font-size: 0.7rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  column-gap: 2rem;
+  width: 50rem;
 }
 
-.form_field {
-  min-width: 49%;
+.users{
+  font-size: 0.7rem;
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: center;
+  width: 55rem;
 }
 
-label {
-  font-size: .7rem;
-}
-
-input {
+td{
+  padding: 1rem 5%;
+  column-gap: 2rem;
   box-sizing: border-box;
-  width: 100%;
-  outline: none;
-  border: 1px solid var(--input-border-color);
-  padding: 0.5rem;
-  border-radius: 3px;
-  margin: 2% 0;
-}
-
-input[type="submit"] {
-  width: 35%;
-  background-color: var(--button-color);
-  color: var(--text-color);
-  border-color: var(--button-color);
-  cursor: pointer;
+  margin-left: auto;
+  margin: 5rem;
 }
 
 footer {
@@ -117,5 +104,8 @@ footer {
 }
 
 main{
-  height: 40vh;
+  min-height: 40vh;
+  width: 80%;
+  margin: 1rem auto;
+  display: block;
 }
