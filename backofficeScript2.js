@@ -1,5 +1,5 @@
 let CurrentPage = 1
-const USERS_PER_PAGE = 4
+const USERS_PER_PAGE = 5
 
 function deleteUser(id) {
     user = user.filter((user) => user.id !== id)
@@ -71,7 +71,7 @@ function createFixedRow(){
 }
 
 function createUserRow(user){
-    const userData = document.createElement('tr')
+    const userRow = document.createElement('tr')
     userRow.id = user.id
     userRow.classList.add('user_row')
 
@@ -79,13 +79,20 @@ function createUserRow(user){
     const columnEmail = createColumnEmail(user)
     const columnCadastradoEm = createColumnCadastradoEm(user)
     const columnEditar = createColumnEditar(user)
-    const columnExcluir = createColumnExcluir(user) 
+    const columnExcluir = createColumnExcluir(user)
+    
+    userRow.appendChild(columnNome)
+    userRow.appendChild(columnEmail)
+    userRow.appendChild(columnCadastradoEm)
+    userRow.appendChild(columnEditar)
+    userRow.appendChild(columnExcluir)
+
+    return userRow
 }
 
 function createUserRows(userData){
     return userData.map(createUserRow)
 }
-
 
 function renderUsers(){
     const userData = getCurrentPageUsers()
@@ -93,13 +100,13 @@ function renderUsers(){
 
     const userContainer = document.querySelector('.users')
     userContainer.replaceChildren()
-    userRows.forEach((userRows) => {useContainer.appendChild(userRows)})
-}
+    userRows.forEach((userRows) => {userContainer.appendChild(userRows)})
 }
 
 function render() {
     const totalPages = getTotalPages()
     if (currentPage > totalPages) currentPage = totalPages
+    
 
     //renderPagination(totalPages)
     renderUsers()
@@ -113,4 +120,54 @@ function render(){
     //renderPagination()
 }
 
+
+function changePage(newPage) {
+    const totalPages = getTotalPages()
+    if (newPage >= 1 && newPage <= totalPages) {
+        currentPage = newPage
+        render()
+    }
+}
+
+function createPrevPageButton() {
+    const prevPageButton = createButtonElement('<<')
+    prevPageButton.addEventListener('click', () => {
+        changePage(currentPage - 1)
+    })
+    return prevPageButton
+}
+
+function createNextPageButton() {
+    const nextPageButton = createButtonElement('>>')
+    nextPageButton.addEventListener('click', () => {
+        changePage(currentPage + 1)
+    })
+    return nextPageButton
+}
+
+function createPaginationButton(page) {
+    const paginationButton = createButtonElement(page)
+    if (page === currentPage) paginationButton.classList.add('active')
+    paginationButton.addEventListener('click', () => changePage(page))
+
+    return paginationButton
+}
+
+function renderPagination(totalPages) {
+    const pagination = document.querySelector('.pagination')
+    pagination.replaceChildren()
+
+    if (totalPages) {
+        const prevPageButton = createPrevPageButton()
+        pagination.appendChild(prevPageButton)
+
+        for (let page = 1; page <= totalPages; page++) {
+            const paginationButton = createPaginationButton(page)
+            pagination.appendChild(paginationButton)
+        }
+
+        const nextPageButton = createNextPageButton()
+        pagination.appendChild(nextPageButton)
+    }
+}
 render()

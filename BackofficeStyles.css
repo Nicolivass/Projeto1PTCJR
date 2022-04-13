@@ -69,7 +69,7 @@ header {
 /*table styles*/
 thead{
   background-color: var(--table-head-bg);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,20 +78,38 @@ thead{
   width: 50rem;
 }
 
+
 .users{
-  font-size: 0.7rem;
-  padding: 1rem 5%;
+  font-size: 0.8rem;
+  padding: 2%;
   display: flex;
-  justify-content: center;
-  width: 55rem;
+  flex-direction: column;
+  width: auto;
+  align-self: center;
+  margin: auto;
 }
 
 td{
-  padding: 1rem 5%;
-  column-gap: 2rem;
-  box-sizing: border-box;
-  margin-left: auto;
-  margin: 5rem;
+  padding: 0.5rem;
+  width: 27%;
+}
+
+tr{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+button{
+  background-color: #fff ;
+}
+
+.edit{
+  color:var(--edit-button-color);
+}
+
+.delete{
+  color:var(--delete-button-color);
 }
 
 footer {
