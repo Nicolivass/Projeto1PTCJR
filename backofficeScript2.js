@@ -1,9 +1,26 @@
 let CurrentPage = 1
 const USERS_PER_PAGE = 5
 
+
+function getTotalPages() {
+    return Math.ceil(users.length / USERS_PER_PAGE)
+}
+
+function getShortText(text, maxSize = 30) {
+    return text.length <= maxSize ? text : `${text.slice(0, maxSize)}...`
+}
+
 function deleteUser(id) {
     user = user.filter((user) => user.id !== id)
     render()
+}
+
+
+function createButtonElement(textContent) {
+    const buttonElement = document.createElement('button')
+    buttonElement.textContent = textContent
+    buttonElement.type = 'button'
+    return buttonElement
 }
 
 function getCurrentPageUsers(){
@@ -108,18 +125,14 @@ function render() {
     if (currentPage > totalPages) currentPage = totalPages
     
 
-    //renderPagination(totalPages)
+    renderPagination(totalPages)
     renderUsers()
 }
 
-/*criar a dinamica*/
 function render(){
-    /*tabela*/
     renderUsers()
-    /*paginação*/
-    //renderPagination()
+    renderPagination()
 }
-
 
 function changePage(newPage) {
     const totalPages = getTotalPages()
