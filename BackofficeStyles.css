@@ -35,7 +35,6 @@ a {
 
 header :is(a:hover) {
   color: var(--nav-link-hover-color);
-
 }
 
 /* header styles */
@@ -127,10 +126,22 @@ tr{
 
 .edit{
   color:var(--edit-button-color);
+  background-color: #fff;
+  font-weight: bold;
 }
 
 .delete{
   color:var(--delete-button-color);
+  background-color: #fff;
+  font-weight: bold;
+}
+tr :is(button:hover) {
+  color: var(--pagination-active-bg);
+  ;
+}
+
+.pagination :is(button:hover) {
+  background-color: var(--pagination-active-bg);
 }
 
 footer {
