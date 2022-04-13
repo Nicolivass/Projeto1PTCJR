@@ -1,4 +1,4 @@
-let CurrentPage = 1
+let currentPage = 1
 const USERS_PER_PAGE = 5
 
 
@@ -23,8 +23,8 @@ function createButtonElement(textContent) {
     return buttonElement
 }
 
-function getCurrentPageUsers(){
-    const startIndex = (CurrentPage - 1) * USERS_PER_PAGE
+function getcurrentPageUsers(){
+    const startIndex = (currentPage - 1) * USERS_PER_PAGE
     const endIndex =  startIndex + USERS_PER_PAGE
 
     return users.slice(startIndex, endIndex)
@@ -112,7 +112,7 @@ function createUserRows(userData){
 }
 
 function renderUsers(){
-    const userData = getCurrentPageUsers()
+    const userData = getcurrentPageUsers()
     const userRows = createUserRows(userData)
 
     const userContainer = document.querySelector('.users')
@@ -120,18 +120,11 @@ function renderUsers(){
     userRows.forEach((userRows) => {userContainer.appendChild(userRows)})
 }
 
-function render() {
-    const totalPages = getTotalPages()
-    if (currentPage > totalPages) currentPage = totalPages
-    
-
-    renderPagination(totalPages)
-    renderUsers()
-}
-
 function render(){
     renderUsers()
-    renderPagination()
+    const totalPages = getTotalPages()
+    if (currentPage > totalPages) currentPage = totalPages
+    renderPagination(totalPages)
 }
 
 function changePage(newPage) {
