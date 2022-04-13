@@ -6,10 +6,6 @@ function getTotalPages() {
     return Math.ceil(users.length / USERS_PER_PAGE)
 }
 
-function getShortText(text, maxSize = 30) {
-    return text.length <= maxSize ? text : `${text.slice(0, maxSize)}...`
-}
-
 function deleteUser(id) {
     user = user.filter((user) => user.id !== id)
     render()
@@ -75,6 +71,8 @@ function createColumnExcluir(user){
     deleteButton.type = 'button'
     deleteButton.classList.add('delete')
     deleteButton.textContent = 'excluir'
+
+    deleteButton.addEventListener('click', () => deleteUser(user.id))
 
     return deleteButton
 }

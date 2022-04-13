@@ -66,24 +66,38 @@ header {
   display: flex;
   column-gap: 2rem;
 }
+
 /*table styles*/
+table{
+  width: 100%;
+}
+
+
+/*Table header*/
+
+.column{
+  width: 22rem;
+}
+
 thead{
   background-color: var(--table-head-bg);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: bold;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
-  column-gap: 2rem;
-  width: 50rem;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5%;
 }
 
 
 .users{
   font-size: 0.8rem;
-  padding: 2%;
+  padding: 1%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   width: auto;
   align-self: center;
   margin: auto;
@@ -100,8 +114,15 @@ tr{
   
 }
 
-button{
-  background-color: #fff ;
+.pagination button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.pagination button {
+  color: black;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border: 1px solid #ddd;
 }
 
 .edit{
