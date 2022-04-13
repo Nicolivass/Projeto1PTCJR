@@ -7,13 +7,12 @@ function getTotalPages() {
 }
 
 function deleteUser(id) {
-    user = user.filter((user) => user.id !== id)
+    users = users.filter((user) => user.id !== id)
     render()
 }
-
-
 function createButtonElement(textContent) {
     const buttonElement = document.createElement('button')
+    console.log("testetste")
     buttonElement.textContent = textContent
     buttonElement.type = 'button'
     return buttonElement
